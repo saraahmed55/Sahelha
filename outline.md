@@ -18,6 +18,7 @@ Home:
 
 
 Track:
+    -image
     - title
     - description
     - learning path

@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     
     #my apps
     'tracksapp',
+    'web',
+    'mobile',
+    'machine',
+    'datascience',
 ]
 
 MIDDLEWARE = [
