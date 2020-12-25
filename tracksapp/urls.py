@@ -6,6 +6,6 @@ from . import views
 
 urlpatterns = [
     
-    path('',views.Track_list),
-    path('<int:id>',views.Track_detail),
+    path('',views.track_list),
+    path('<int:id>',views.track_detail),
 ]
