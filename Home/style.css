@@ -1,0 +1,623 @@
+    div.container
+    {
+    width: 99%;
+    height: 80px;
+    top: 0;
+    background-color: #152239;
+    color:#fff;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    z-index: 12;
+    top: 0;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    }
+   /*from web development*/
+    a:hover 
+    {
+    color: #FC3;
+    text-decoration: none;
+    }
+
+    ul 
+    {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    }
+
+    p 
+    {
+    font-size: 13px;
+    line-height: 22px;
+    }
+
+    /*header*/
+
+
+    @media screen and (max-width: 1050px) 
+    {
+    .main-header .logo {
+    padding-left: 30px;
+    }
+
+    .main-menu {
+    padding-right: 30px;
+    }
+
+    .main-menu li {
+    margin-left: 5px;
+    }
+    }
+
+    .main-header 
+    {
+    background-color: rgb(16,28,50);
+    height: 80px;
+    position: fixed;
+    z-index: 12;
+    width: 100%;
+    top: 0;
+    transition: all 0.2s ease-in-out;
+    height: 80px;  
+    text-align: center;
+    line-height: 40px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Montserrat', sans-serif;
+    }
+
+    .main-header .logo 
+    {
+    float: left;
+    line-height: 80px;
+    padding-left: 60px;
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #fff;
+    }
+
+    .main-header .logo em 
+    {
+    font-style: normal;
+    color: #f5a425;
+    }
+
+    .main-menu 
+    {
+    float: right;
+    padding-right: 60px;
+    }
+
+    .main-menu li 
+    {
+    display: inline-block;
+    line-height: 79px;
+    margin-left: 15px;
+    position: relative;
+    }
+
+    .main-menu li:first-child 
+    {
+    margin-left: 0px;
+    }
+
+    .main-menu li a 
+    {
+    padding: 10px 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: #fff;
+    border: 2px solid transparent;
+    transition: all 0.5s;
+    }
+
+
+
+    .main-menu li.has-submenu ul li a:after 
+    {
+    display: none;
+    }
+
+    .main-menu li .sub-menu 
+    {
+    position: absolute;
+    width: 160px;
+    background-color: #18233a;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+    }
+
+    .main-menu li:hover .sub-menu 
+    {
+    opacity: 1;
+    visibility: visible;
+    }
+
+    .main-menu li .sub-menu li 
+    {
+    display: block;
+    line-height: 20px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #121b2f;
+    }
+
+    .main-menu li .sub-menu li:first-child 
+    {
+    padding-top: 15px;
+    }
+
+    .main-menu li .sub-menu li:last-child 
+    {
+    margin-bottom: 0px;
+    border-bottom: none;
+    }
+
+    .main-menu li .sub-menu li a 
+    {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0px 15px;
+    letter-spacing: 0.5px;
+    border: none;
+    transition: all 0.5s;
+    }
+
+    .main-menu li .sub-menu li a:hover 
+    {
+    color: #f5a425;
+    border: none;
+    }
+
+    .main-nav li:hover a,
+    .main-nav li.active a 
+    {
+    border: 2px solid #f5a425;
+    }
+
+    @media (max-width: 950px) {
+    .main-nav li:hover a,
+    .main-nav li.active a {
+    border: 2px solid transparent;
+    border-bottom: 1px solid rgba(250,250,250,0.25);
+    }
+    }
+
+    /* Buttons */
+
+    .main-button a 
+    {
+    background-color: #f5a425;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    padding: 12px 20px;
+    display: inline-block;
+    outline: none;
+    }
+
+    a.menu-link { display: none; }
+
+    @media screen and (max-width: 950px) 
+    {
+    a.menu-link {
+    float: right;
+    display: block;
+    font-size: 36px;
+    color: #fff;
+    padding-right: 30px;
+    padding-top: 15px;
+    }
+    nav[role="navigation"] {
+    clear: both;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    }
+    .js nav[role="navigation"] {
+    overflow: hidden;
+    max-height: 0;
+    }
+    nav[role="navigation"].active {
+    max-height: 20em;
+    height: 20em;
+    overflow-y: scroll;
+    }
+    nav[role="navigation"] ul {
+    top: 0;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(250,250,250,0.25);
+    background-color: rgba(22,34,57,0.99);
+    }
+    nav[role="navigation"] li a {
+    display: block;
+    padding: 15px 0px;
+    border-bottom: 1px solid rgba(250,250,250,0.25);
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.5;
+    }
+    nav[role="navigation"] li:hover a,
+    nav[role="navigation"] li.active a {
+    color: #f5a425;
+    }
+
+    @media screen and (min-width: 951px) {
+    .js nav[role="navigation"] {
+    max-height: none;
+    }
+
+    nav[role="navigation"] li {
+    display: inline-block;
+    margin: 0 0.25em;
+    }
+    nav[role="navigation"] li a {
+    border: 0;
+    }
+    }
+    }
+    /*it's the home section*/
+
+    .section2
+    {
+
+    position: relative;
+    display: block;
+    background-color: rgba(22,34,57,0.85);
+    top: 0;
+    left: 0;
+    bottom: 7px;
+
+
+    }
+    .vid{
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.3;
+    width:1334px;
+    height: 600px;
+    margin: 0px;
+    margin-bottom: -5px;
+   
+
+
+
+    }
+
+    .sliderr
+    {
+
+    text-align: center;
+    color: #f5a425;
+    height: 400px;
+    width: 100%;
+    font-size: 50px;
+    font-weight: 900;
+    font-style: normal;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    top: 135px;
+    }
+    .inslider2{
+    color: #fff;
+    font-size: 70px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    }
+    .pslider{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 20PX;
+    }
+
+
+
+
+
+
+    /*it's the about section*/
+    .section3
+    {
+    background-image: url('courses-bg.jpg');
+    height: 500px;
+    width: 100%;
+
+
+
+    }
+    .whopic
+    {
+    float: left;
+    padding:70px ;
+
+    }
+
+    .who {
+    padding:5px;
+    width: 600px;
+    height: 320px;
+    float:right;
+    padding:30px ;
+    margin-top: 90px;
+    text-align: center;
+    }
+
+    .about
+    {
+    padding: 0px;
+    margin: 0px;
+    justify-content: space-between;
+    display: block;
+
+    }
+    .whoh
+    {
+    text-align:center;
+    font-size: 35px;
+    font-weight: bold;
+    color:#f5a425 ;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    }
+    .whop
+    {
+
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    font-size: 20px;
+
+    }
+
+
+    /*it's the tracks section*/
+
+    .section4
+    {
+    background-image: url('main-slider-01.jpg');
+    height: 600px;
+    width: 100%;
+    margin-top: 0px;
+    }
+    .Tracks
+    {
+    text-align:center;
+    color:#ddd;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 40px;
+
+    }
+    .in
+    {
+    text-align:center;
+    color:#152239;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+
+    }
+    .pic{
+
+      border-radius: 15px;
+
+    }
+    .ptrack
+    {
+      text-align:center;
+      color:#152239;
+      font-family: 'Montserrat', sans-serif;
+      
+      font-size: 16px;
+      line-height: 22px;
+      text-align: center;
+    }
+
+
+    .web
+    {
+    padding:10px;
+    background-color:#ccc;
+    width: 310px;
+    height: 450px;
+    float: left;
+    margin: 10px;
+    border-radius: 15px;
+
+    }
+
+
+
+    .app
+    {
+    padding:10px;
+    background-color: #ccc;
+    background-size: cover;
+    width: 310px;
+    height: 450px;
+    float: left;
+    margin: 10px;
+    border-radius: 15px;
+    }
+    .ML
+    {
+    padding:10px;
+    background-color: #ccc;
+    width: 310px;
+    height: 450px;
+    float: left;
+    margin: 10px;
+    border-radius: 15px;
+    }
+    .data
+    {
+    padding:10px;
+    background-color: #ccc;
+    width: 310px;
+    height: 450px;
+    float: left;
+    margin: 10px;
+    border-radius: 15px;
+    }
+
+
+
+      .section5
+      {
+        background-image: url('courses-bg.jpg');
+        height: 600px;
+        width: 100%;
+        margin-top: 0px;
+      }
+      
+
+    /*الفورم دي اعملي الاكشن*/   
+      
+
+    /* style the form */
+    * {box-sizing: border-box}
+
+    /* style myform */
+    .formword
+    {
+    text-align:center;
+    color:#ddd;
+    font-family: 'Montserrat', sans-serif;
+    }
+    .myform {
+    position: relative;
+    border-radius: 5px;
+    padding: 100px 0 50px 0;
+    }
+
+    /* style inputs and link buttons */
+    input,
+    .btn {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 4px;
+    margin:10px 0;
+    opacity: 0.7;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 30px;
+    text-decoration: none; /* remove underline from anchors */
+    }
+
+    input:hover,
+    .btn:hover {
+    opacity: 1;
+    }
+
+    /* add appropriate colors to fb, twitter and google buttons */
+    .fb {
+    background-color: #3B5998;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+
+    }
+
+    .twitter {
+    background-color: #55ACEE;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+
+    }
+
+    .google {
+    background-color: #dd4b39;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+
+    }
+
+    /* style the submit button */
+    input[type=submit]
+    {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    }
+
+    input[type=submit]:hover {
+    background-color: #45a049;
+    text-align: center;
+    }
+
+    /* Two-column layout */
+    .col {
+    float: left;
+    width: 50%;
+    margin: auto;
+    padding: 0 50px;
+    margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    button
+    {
+    outline: none ;
+    background-color: #F9A300;
+    border: none;
+    height: 40px;
+    padding: 5px 15px;
+    color: #152239;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+    border-radius:20px;
+    text-align: center;
+    }
+    .footer
+    {
+    width: 100%;
+    height: 90px;
+    background-color: #152239;
+    text-align: center;
+    padding: 40px;
+    color: #ccc;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+
+    }
+
+
