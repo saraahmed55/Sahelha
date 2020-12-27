@@ -17,10 +17,15 @@ from django.contrib import admin
 from django.urls import path ,include
 from django.conf import settings
 from django.conf.urls.static import static
+from mobile.views import mobile
+from web.views import web
+from datascience.views import data
+from machine.views import machine
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tracks/', include('tracksapp.urls')),
+    path('home/', include('tracksapp.urls', namespace ='tracks')),
+
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
