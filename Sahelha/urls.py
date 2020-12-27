@@ -24,6 +24,7 @@ from machine.views import machine
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('home/', include('tracksapp.urls', namespace ='tracks')),
 
 ]

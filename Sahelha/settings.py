@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     #my apps
     'tracksapp',
+    'accounts',
     'web',
     'mobile',
     'machine',
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'Sahelha.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
