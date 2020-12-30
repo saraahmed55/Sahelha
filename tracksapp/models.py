@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.urls import reverse
 
 # Create your models here.
 
@@ -20,17 +21,43 @@ class tracksapp(models.Model):
     image_in_list = models.ImageField( upload_to=image_upload)
     image_in_detail = models.ImageField( upload_to=image_upload_detail)
     slug= models.SlugField(blank=True, null=True)
+    courses=models.ManyToManyField("courses")
+
+    
+    def __str__(self):
+        return self.title
+
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(tracksapp,self).save(*args, **kwargs)
 
+class courses(models.Model):
+    title=models.CharField(max_length=30)
+    description=models.TextField(max_length=400)
+    learnInArabic=models.URLField(blank=True, null=True)
+    learInEnglish=models.URLField(blank=True, null=True)
+    w3shools=models.URLField(blank=True, null=True)
+    slug=models.SlugField(blank=True, null=True)
+
+
 
     def __str__(self):
         return self.title
+    
+
+    def get_absolute_url(self):
+        return reverse("tracksapp:track_detail",kwargs={"slug":self.slug})
+
 
 class Category(models.Model):
     name=models.CharField(max_length=25)  
           
     def __str__(self):
         return self.name
+
+
+
+
+
+    

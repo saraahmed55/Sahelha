@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import tracksapp
+from . models import tracksapp,courses
 from django.core.paginator import Paginator
 # Create your views here.
 
@@ -17,3 +17,17 @@ def track_detail(request , slug):
     context ={'track':track_detail}
     return render(request,'tracksapp/track_detail.html',context)
     
+
+def CourseListView(request,category):
+    courses=courses.objects.filter(klasa=category) 
+    context={
+        'courses':courses,
+        'kategori':category
+    } 
+    return render(request,'tracksapp/track_list.html',context)
+
+
+class CourseDetailView():
+    context_object_name='course'
+    template_name='tracksapp/track_detail.html'
+    model=courses    
