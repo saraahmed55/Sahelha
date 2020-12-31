@@ -34,10 +34,12 @@ class tracksapp(models.Model):
 
 class courses(models.Model):
     title=models.CharField(max_length=30)
-    description=models.TextField(max_length=400)
-    learnInArabic=models.URLField(blank=True, null=True)
-    learInEnglish=models.URLField(blank=True, null=True)
-    w3shools=models.URLField(blank=True, null=True)
+    firstcourse_title=models.CharField(max_length=30, blank=True, null=True)
+    firstcourse_url=models.URLField(blank=True, null=True)
+    secondcourse_title=models.CharField(max_length=30, blank=True, null=True)
+    secondcourse_url=models.URLField(blank=True, null=True)
+    thirdcourse_title=models.CharField(max_length=30, blank=True, null=True)
+    thirdcourse_url=models.URLField(blank=True, null=True)
     slug=models.SlugField(blank=True, null=True)
 
 

@@ -1,161 +1,121 @@
+{% extends 'base.html'%}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet">
+{% endblock css %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
-        rel="stylesheet">
+{% block title%}
+  <title>SAHELHA.COM</title>
+{% endblock title%}
 
-    <title>SAHELHA.COM</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-
-</head>
-
-<body>
-
-  <header class="main-header clearfix" role="header">
-    <div class="logo">
-      <em>SAHELHA</em>.COM
-    </div>
-   
-    <nav id="menu" class="main-nav" role="navigation">
-      <ul class="main-menu">
-        <li><a href="#section2">Home</a></li>
-        <li class="has-submenu"><a href="#section3">About Us</a></li>
-        <li><a href="#section4">Tracks</a></li>
-        <li><a href="#section5">Login</a></li>
-    </nav>
-        </header>
-
-
-
-    <section class="section2">
-      <video autoplay="" muted="" loop=""  class="vid" >
-          <source src="{% static 'videos/course-video.mp4' %}" type="video/mp4">
-         
-         
-      </video>
+{% block body%}
+  <section class="section2">
+    <video autoplay="" muted="" loop=""  class="vid" >
+        <source src="{% static 'videos/course-video.mp4' %}" type="video/mp4">
         
-         <div class="sliderr">
-             <h1 class="inslider">YOUR<span class="inslider2">  MENTOR</span></h1> 
-             <p class="pslider">STAY PASSIONATE "SAHELHA" WILL PROVIDE YOU WITH A ROAD MAP</p>
-         </div>
-
-    </section>
-
-<section class="section3" style="background-image:url('{% static 'img/courses-bg.jpg' %}');">
-
-    
-        <div class="about">
         
-                  <div class="whopic">
-                    <img src="{% static 'img/choose-us-image-01.png' %}" alt="">
-                  </div>
-
-                  <div class="who">
-                    <h4 class="whoh">WHAT IS SAHELHA?</h4>
-                    <p class="whop">Shahlha is a website in which we collect data to all who want to learn programming, 
-                      In our web site you will found road map to learn one of the available tracks (Web Development-App Development-ML-Data Science)</p>
-                  </div>
+    </video>
+      
+        <div class="sliderr">
+            <h1 class="inslider">YOUR<span class="inslider2">  MENTOR</span></h1> 
+            <p class="pslider">STAY PASSIONATE "SAHELHA" WILL PROVIDE YOU WITH A ROAD MAP</p>
         </div>
-  
-</section>
 
+  </section>
 
-<section class="section4" style="background-image:url('{% static 'img/main-slider-01.jpg' %}')">
+  <section class="section3" style="background-image:url('{% static 'img/courses-bg.jpg' %}');">
 
-        <div class="Tracks">
-             Choose Your Track 
-         </div>
-    <div class="alltracks">
-      {% for track in tracks %}
-        <div class="web">
-            <img class="pic" src="{{track.image_in_list.url}}">
-             <h1 class="in">{{track}}</h1> 
-             <p class="ptrack">{{track.description_in_list}}</p>
-             <center><button onclick="location.href='{% url 'tracks:track_detail' track.slug %}'" type="button"> GO</button></center>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="ddd"> </div>
-
-    <div class="pagination p1">
-      <ul>
-        {% if tracks.has_other_pages %}
-          {% if tracks.has_previous %}
-            <a href="?page={{tracks.previous_page_number}}"><li>&laquo;</li></a>
-          {% endif %}
-        {% endif %}
-
-        {% for i in tracks.paginator.page_range %}
-        <a href="?page={{i}}"><li>{{i}}</li></a>
-        {% endfor %}
-
-        {% if tracks.has_other_pages %}
-          {% if tracks.has_next %}
-            <a href="?page={{tracks.next_page_number}}"><li>&raquo;</li></a>
-          {% endif %}
-        {% endif %}
-      </ul>
-    </div>
-
-
-</section>
-
-
-
-
-<section class="section5" style="background-image:url('{% static 'img/courses-bg.jpg' %}');">
-
-    <div class="Login">
-        <div class="myform">
-         
-              <div class="row">
-                <h2  class="formword" >Login with Social Media or Manually</h2>
-                
+      
+          <div class="about">
           
-                <div class="col">
-                  <a href="#" class="fb btn">
-                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                  </a>
-                  <a href="#" class="twitter btn">
-                    <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-                  </a>
-                  <a href="#" class="google btn">
-                    <i class="fa fa-google fa-fw"></i> Login with Google+
-                  </a>
-                </div>
-          
-                <div class="col">
-                  <input type="text" name="username" placeholder="Username" required>
-                  <input type="password" name="password" placeholder="Password" required>
-                  <input type="submit" value="Login">
-                </div>
-          
-              </div>
-            </form>
+                    <div class="whopic">
+                      <img src="{% static 'img/choose-us-image-01.png' %}" alt="">
+                    </div>
+
+                    <div class="who">
+                      <h4 class="whoh">WHAT IS SAHELHA?</h4>
+                      <p class="whop">Shahlha is a website in which we collect data to all who want to learn programming, 
+                        In our web site you will found road map to learn one of the available tracks (Web Development-App Development-ML-Data Science)</p>
+                    </div>
           </div>
+    
+  </section>
+
+  <section class="section4" style="background-image:url('{% static 'img/main-slider-01.jpg' %}')">
+
+          <div class="Tracks">
+              Choose Your Track 
+          </div>
+      <div class="alltracks">
+        {% for track in tracks %}
+          <div class="web">
+              <img class="pic" src="{{track.image_in_list.url}}">
+              <h1 class="in">{{track}}</h1> 
+              <p class="ptrack">{{track.description_in_list}}</p>
+              <center><button onclick="location.href='{% url 'tracks:track_detail' track.slug %}'" type="button"> GO</button></center>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="ddd"> </div>
+
+      <div class="pagination p1">
+        <ul>
+          {% if tracks.has_other_pages %}
+            {% if tracks.has_previous %}
+              <a href="?page={{tracks.previous_page_number}}"><li>&laquo;</li></a>
+            {% endif %}
+          {% endif %}
+
+          {% for i in tracks.paginator.page_range %}
+          <a href="?page={{i}}"><li>{{i}}</li></a>
+          {% endfor %}
+
+          {% if tracks.has_other_pages %}
+            {% if tracks.has_next %}
+              <a href="?page={{tracks.next_page_number}}"><li>&raquo;</li></a>
+            {% endif %}
+          {% endif %}
+        </ul>
+      </div>
+
+
+  </section>
+
+  <section class="section5" style="background-image:url('{% static 'img/courses-bg.jpg' %}');">
+
+      <div class="Login">
+          <div class="myform">
           
-          
-          
-    </div>
-   
-</section>
-
-<section class="section6">
-  
-<div class="footer">
-  <footer>&copy; Copyright Sahelha Team 2020</footer>
-</div>
-
-</section>
-
-</body>
-
-</html>
+                <div class="row">
+                  <h2  class="formword" >Login with Social Media or Manually</h2>
+                  
+            
+                  <div class="col">
+                    <a href="#" class="fb btn">
+                      <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                    </a>
+                    <a href="#" class="twitter btn">
+                      <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                    </a>
+                    <a href="#" class="google btn">
+                      <i class="fa fa-google fa-fw"></i> Login with Google+
+                    </a>
+                  </div>
+            
+                  <div class="col">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Login">
+                  </div>
+            
+                </div>
+              </form>
+            </div>
+                
+      </div>
+    
+  </section>
+{% endblock body%}
