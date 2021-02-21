@@ -1,0 +1,26 @@
+{% extends 'base_generic.html' %}
+{%load bootstrap4%}
+
+{% block content %}
+
+<h2  class="formword" >Sign up</h2>
+  <div class="col">
+    <a href="#" class="fb btn">
+      <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+    </a>
+    <a href="#" class="twitter btn">
+      <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+    </a>
+    <a href="#" class="google btn">
+      <i class="fa fa-google fa-fw"></i> Login with Google+
+    </a>
+  </div>
+  <div class="col">
+  <form method="post">
+    {% csrf_token %}
+    {%bootstrap_form form%}
+    <button type="submit" class="hb">Sign up</button>
+  </form>
+  <p><a href="{% url 'login' %}" class="ha">already have an account?</a></p>
+</div>
+{% endblock %}

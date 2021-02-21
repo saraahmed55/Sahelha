@@ -1,0 +1,79 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+{% endblock css %}
+
+{% block title%}
+  <title>SAHELHA.COM</title>
+{% endblock title%}
+
+{% block body%}
+  <section class="section2">
+
+    <video autoplay="" muted="" loop=""  class="vid" >
+        <source src="{% static 'videos/course-video.mp4' %}" type="video/mp4">   
+    </video>
+      
+    <div class="sliderr">
+        <h1 class="inslider">YOUR<span class="inslider2">  MENTOR</span></h1> 
+        <p class="pslider">STAY PASSIONATE "SAHELHA" WILL PROVIDE YOU WITH A ROAD MAP</p>
+    </div>
+
+  </section>
+
+  <section class="section3" style="background-image:url('{% static 'img/courses-bg.jpg' %}');" name="section3">
+
+      
+    <div class="about">
+    
+        <div class="whopic">
+          <img src="{% static 'img/choose-us-image-01.png' %}" alt="">
+        </div>
+
+        <div class="who">
+          <h4 class="whoh">WHAT IS SAHELHA?</h4>
+          <p class="whop">Shahlha is a website in which we collect data to all who want to learn programming, 
+            In our web site you will found road map to learn one of the available tracks (Web Development-App Development-ML-Data Science)</p>
+        </div>
+    </div>
+    
+  </section>
+
+  <section class="section4" style="background-image:url('{% static 'img/main-slider-01.jpg' %}')">
+
+    <div class="Tracks">
+        Choose Your Track 
+    </div>
+    {% if tracks.has_other_pages %}
+      {% if tracks.has_previous %} 
+        <a href="?page={{tracks.previous_page_number}}" class="left">&laquo;</a>
+      {% endif %}
+    {% endif %} 
+
+    <div class="alltracks">
+
+      {% for track in tracks %}
+        <div class="web">
+            <img class="pic" src="{{track.image_in_list.url}}">
+            <h1 class="in">{{track}}</h1> 
+            <p class="ptrack">{{track.description_in_list|linebreaks}}</p>
+            <center><button onclick="location.href='{% url 'tracks:track_detail' track.slug %}'" type="button"> GO</button></center>
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+    {% if tracks.has_other_pages %}
+      {% if tracks.has_next %} 
+        <a href="?page={{tracks.next_page_number}}" class="right">&raquo;</a>
+      {% endif %}
+    {% endif %}
+
+  </section>
+
+{% endblock body%}

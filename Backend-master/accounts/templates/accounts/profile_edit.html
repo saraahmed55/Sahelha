@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<h2  class="formword" >Edit Your Profile</h2>  
+  <div class="con">
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+     {%bootstrap_form userform %}
+     
+    <input type="submit" value="login" class="hb"/>
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}" class="ha">Lost password?</a></p>
+
+
+</div>
+{% endblock %}

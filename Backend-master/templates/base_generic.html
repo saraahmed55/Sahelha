@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block css %}
+  
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock css %}
+
+{% block title%}
+  <title>SAHELHA.COM</title>
+{% endblock title%}
+
+{% block body%}
+
+  <section class="section5 hs" style="background-image:url('{% static 'img/courses-bg.jpg' %}');">
+
+      <div class="Login">
+          <div class="myform">
+          
+              <div class="row">
+                  {%block content%}
+
+                  
+                  {%endblock content%}
+                
+              </div>
+          </div>
+                
+      </div>
+    
+  </section>
+{% endblock body%}

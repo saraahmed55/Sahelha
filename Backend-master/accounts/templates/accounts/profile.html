@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/old.css' %}">
+</head>
+<body>
+    <section class="first" style="background-image:url('{% static 'img/courses-bg.jpg' %}');">
+        <header class="main-header clearfix" role="header">
+            <div class="logo">
+              <em>SAHELHA</em>.COM
+            </div>
+
+            <nav id="menu" class="main-nav" role="navigation">
+              <ul class="main-menu">
+                <li><a href="{% url 'tracks:track_list' %}">Home</a></li>
+                <li class="has-submenu"><a href="{% url 'tracks:track_list' %}">About Us</a></li>
+                <li><a href="{% url 'tracks:track_list' %}">Tracks</a></li>
+                {%if request.user.is_authenticated%}
+                <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+                {%else%}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {%endif%}
+              </ul>
+            </nav>
+        </header>
+
+        <div class="profile">
+
+        <em>YOUR</em>    PROFILE
+
+    </div>
+
+        <div class="learner">
+            <img src="{{profile.image.url}}">
+        </div>
+
+        <div class="learnername">{{profile}}</div>
+        <div class="icon">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+
+        </div>
+    <div>
+        <div class="container1">
+          <div class="box">
+             <div class="title">
+                 <p>SETTINGS</p>
+              </div>
+              <div class="content">
+                <ul>
+                <li><a href="https://www.khanacademy.org/math/linear-algebra"><p>Edit Your Name</p></a></li>
+                <li><a href="https://www.edx.org/course/cs50s-introduction-to-computer-science"><p>Edit Your Photo</p></a></li>
+                <li><a href="https://www.khanacademy.org/math/linear-algebra"><p>Edit Your Contact</p></a></li>
+                </ul>
+              </div>
+           </div>
+           <div class="box">
+               <div class="title">
+                 <p>CONTACT</p>
+              </div>
+              <div class="content">
+                <ul>
+                  <li><a href="https://youtube.com/playlist?list=PLDoPjvoNmBAyE_gei5d18qkfIe-Z8mocs"><p>Facebook</p></a></li>
+                  <li><a href="https://www.udemy.com/course/python-for-every1/"><p>linkedin</p></a></li>
+                  <li><a href="https://www.udemy.com/course/python-for-every1/"><p>Twitter</p></a></li>
+
+                </ul>
+              </div>
+           </div>
+           <div class="box">
+               <div class="title">
+                 <p>FAVOURITE</p>
+              </div>
+              <div class="content">
+                <ul>
+                  <li><a href="https://youtube.com/playlist?list=PL1DUmTEdeA6LKTMW3wrlT3GiFMCL_r_Sn"><p>Python In Arabic</p></a></li>
+                  <li><a href="https://www.udemy.com/course/r-basics/?LSNPUBID=JVFxdTr9V80&ranEAID=JVFxdTr9V80&ranMID=39197&ranSiteID=JVFxdTr9V80-jbNUEiqH4oYCTf86rt3NrA&utm_medium=udemyads&utm_source=aff-campaign"><p>CS50 In English</p></a></li>
+
+                </ul>
+              </div>
+           </div>
+
+          </div>
+        </div>
+
+      </section>
+      <section class="second">
+
+        <div class="footer">
+          <footer>&copy; Copyright Sahelha Team 2020</footer>
+        </div>
+
+
+
+        </section>
+</body>
+
+</html>
+
