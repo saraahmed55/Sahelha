@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -31,6 +32,17 @@ class tracksapp(models.Model):
         super(tracksapp,self).save(*args, **kwargs)
 
 class courses(models.Model):
+
+
+    class NewManager(models.Manager):
+        def get_queryset(self):
+            return super().get_queryset() 
+
+        options = (
+            ('draft', 'Draft'),
+            ('published', 'Published'),
+        )
+
     title=models.CharField(max_length=30, verbose_name='Courses Name')
     firstcourse_title=models.CharField(max_length=30, blank=True, null=True, verbose_name="First Course Title")
     firstcourse_url=models.URLField(blank=True, null=True, verbose_name="First Course URL")
@@ -39,6 +51,14 @@ class courses(models.Model):
     thirdcourse_title=models.CharField(max_length=30, blank=True, null=True, verbose_name="Third Course Title")
     thirdcourse_url=models.URLField(blank=True, null=True, verbose_name="Third Course URL")
     slug=models.SlugField(blank=True, null=True)
+    favourites=models.ManyToManyField(
+        User,related_name='favourite',default=None,blank=True)
+    objects = models.Manager()  # default manager
+    newmanager = NewManager()  # custom manager
+
+
+    # class Meta:
+    #     ordering = ('-publish',)
 
     def __str__(self):
         return self.title

@@ -1,0 +1,108 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+    
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link href="{% static 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/old.css' %}">
+</head>
+<body>
+    <section class="first" style="background-image:url('{% static 'img/courses-bg.jpg' %}');">
+        <header class="main-header clearfix" role="header">
+            <div class="logo">
+              <em>SAHELHA</em>.COM
+            </div>
+
+            <nav id="menu" class="main-nav" role="navigation">
+              <ul class="main-menu">
+                <li><a href="{% url 'tracks:track_list' %}">Home</a></li>
+                <li class="has-submenu"><a href="{% url 'tracks:track_list' %}">About Us</a></li>
+                <li><a href="{% url 'tracks:track_list' %}">Tracks</a></li>
+                {%if request.user.is_authenticated%}
+                <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+                {%else%}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {%endif%}
+              </ul>
+            </nav>
+        </header>
+
+        <div class="profile">
+
+        <em>YOUR</em>    PROFILE
+
+    </div>
+
+        
+
+        <div class="learnername">{{profile}}</div>
+        <div class="icon">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+
+        </div>
+    <div>
+        <div class="container1">
+          
+          
+          <div >
+              <div class="title">
+                  <div >
+                        <section class="jumbotron text-center bg-white">
+                            <div class="container">
+                                <h1>Users saved favourite posts</h1>
+                                <p class="lead text-muted">Here you can remove or view the favourite courses you have added</p>
+                            </div>
+                        </section>
+                    </div>
+
+
+                                {% for course in new %}
+                                <div class="box">
+                                    <div class="title">
+                                        <p>{{course.title}}</p>
+                                    </div> 
+                                    <div class="content">
+                                        <ul>
+                                        <li><a href="{{course.firstcourse_url}}"><p>{{course.firstcourse_title}}</p></a></li>
+                                        <li><a href="{{course.secondcourse_url}}"><p>{{course.secondcourse_title}}</p></a></li>
+                                        {% if course.thirdcourse_title != null %}
+                                        <li><a href="{{course.thirdcourse_url}}"><p>{{course.thirdcourse_title}}</p></a></li>
+                                        {% endif %}
+                                        <div id="favourite-section"><a href="{% url 'accounts:favourite_add' course.id %}" 
+                                            style="margin-top: 5px;    padding: 6px;"  class="btn btn-danger">Remove</a></div>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                                {% endfor %}
+
+              </div>
+          
+          </div>
+
+          </div>
+        </div>
+
+      </section>
+      <section class="second">
+
+        <div class="footer">
+          <footer>&copy; Copyright Sahelha Team 2020</footer>
+        </div>
+
+
+
+        </section>
+</body>
+
+</html>
+

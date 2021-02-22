@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 {%extends 'base.html'%}
 {% load static %}
 
@@ -63,8 +65,21 @@
                 {% if course.thirdcourse_title != null %}
                 <li><a href="{{course.thirdcourse_url}}"><p>{{course.thirdcourse_title}}</p></a></li>
                 {% endif %}
+
               </ul>
+              {%if request.user.is_authenticated%}
+
+              {%if fav %}
+                <a href="{% url 'accounts:favourite_list' %}" style="margin: 10px;" class="btn btn-primary">Remove Favourites</a>
+              {% else %}
+                <a href="{% url 'accounts:favourite_add' course.id %}" style="margin: 10px;" class="btn btn-primary">Add to Favourits</a>
+              {% endif %}
+
+              {% else %}
+              <a href="{% url 'accounts:register' %}" style="margin: 10px;" class="btn btn-primary">Add to Favourits</a>
+              {%endif%}
           </div>
+          
         </div>
       {% endfor %}
     

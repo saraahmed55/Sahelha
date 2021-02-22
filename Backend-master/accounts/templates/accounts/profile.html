@@ -22,6 +22,7 @@
                 <li><a href="{% url 'tracks:track_list' %}">Tracks</a></li>
                 {%if request.user.is_authenticated%}
                 <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+                <li><a  href="{% url 'accounts:favourite_list' %}">Saved Courses</a></li>
                 {%else%}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 {%endif%}
@@ -73,7 +74,7 @@
                 </ul>
               </div>
            </div>
-           <div class="box">
+           <!-- <div class="box">
                <div class="title">
                  <p>FAVOURITE</p>
               </div>
@@ -84,7 +85,7 @@
 
                 </ul>
               </div>
-           </div>
+           </div> -->
 
           </div>
         </div>
