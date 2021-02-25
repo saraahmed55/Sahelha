@@ -486,6 +486,8 @@
     float: left;
     margin: 13px;
     border-radius: 15px;
+    flex-grow: 0;
+    flex-shrink: 0;
 
     }
 
@@ -553,6 +555,7 @@
     /* style myform */
     .formword
     {
+      padding-top: 30px;
     text-align:center;
     color:#ddd;
     font-family: 'Montserrat', sans-serif;
@@ -708,8 +711,8 @@
 }
 
 .logoutp {
+  margin-top: 80px;
   font-size: 35px;
-  text-align: justify;
   font-family: 'Montserrat', 'sans-serif';
   color: #ddd;
   line-height: 1.5;
@@ -734,3 +737,5 @@
 }
 
 textarea {height: 150px;}
+
+.ccen {text-align: center;}

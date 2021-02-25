@@ -29,12 +29,12 @@
         <nav id="menu" class="main-nav" role="navigation">
             <ul class="main-menu">
                 <li><a href="{% url 'tracks:track_list' %}">Home</a></li>
-                <li class="has-submenu"><a href="{% url 'tracks:track_list' %">About Us</a></li>
+                <li class="has-submenu"><a href="{% url 'tracks:track_list' %}">About Us</a></li>
                 <li><a href="{% url 'tracks:track_list' %}">Tracks</a></li>
                 {%if request.user.is_authenticated%}
 
                 <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
-                <li><a  href="{% url 'accounts:favourite_list' %}">Saved Courses</a></li>
+                <li><a  href="{% url 'logout' %}">Log Out</a></li>
                 
                 {%else%}
                 <li><a href="{% url 'login' %}">Login</a></li>

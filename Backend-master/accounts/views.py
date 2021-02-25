@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-
+from django.core.paginator import Paginator
 from django.shortcuts import redirect,render
 from .forms import SignupForm, UserForm, ProfileForm
 from django.contrib.auth import authenticate,login
@@ -19,8 +19,12 @@ from tracksapp.models import courses
 # Create your views here.
 @ login_required
 def favourite_list(request):
+    profile = Profile.objects.get(user=request.user)
     new = courses.newmanager.filter(favourites=request.user)
-    return render(request,'accounts/favourites.html',{'new':new})
+    paginator = Paginator(new, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'accounts/favourites.html',{'profile':profile, 'new':page_obj})
 
 
 
@@ -56,7 +60,7 @@ def signup(request):
 
 def profile(request):
    profile = Profile.objects.get(user=request.user)
-   return render(request,'accounts/profile.html',{'profile':profile})
+   return render(request,'accounts/profile.html',{'profile':profile,})
 
 
 def profile_edit(request):

@@ -69,14 +69,14 @@
               </ul>
               {%if request.user.is_authenticated%}
 
-              {%if fav %}
-                <a href="{% url 'accounts:favourite_list' %}" style="margin: 10px;" class="btn btn-primary">Remove Favourites</a>
-              {% else %}
-                <a href="{% url 'accounts:favourite_add' course.id %}" style="margin: 10px;" class="btn btn-primary">Add to Favourits</a>
-              {% endif %}
+                  {%if request.user in courses.favourites.all %}
+                    <a href="{% url 'accounts:favourite_list' %}" style="margin: 10px;" class="btn btn-primary">Remove Favourites</a>
+                  {% else %}
+                    <a href="{% url 'accounts:favourite_add' course.id %}" style="margin: 10px;" class="btn btn-primary">Add to Favourites</a>
+                  {% endif %}
 
               {% else %}
-              <a href="{% url 'accounts:register' %}" style="margin: 10px;" class="btn btn-primary">Add to Favourits</a>
+              <a href="{% url 'accounts:register' %}" style="margin: 10px;" class="btn btn-primary">Add to Favourites</a>
               {%endif%}
           </div>
           

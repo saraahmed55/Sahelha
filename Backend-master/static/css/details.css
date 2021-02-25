@@ -195,6 +195,7 @@ img
     width: calc(350px - 30px);
     height: calc(450px - 30px);
     background: #f5a425;
+    text-align: center;
     float :left;
     margin: 15px;
     box-sizing: border-box;
@@ -202,6 +203,7 @@ img
     border-radius: 10px;
     right: auto;
     flex-shrink: 0;
+    flex-grow: 0;
 }
 
 .container1 .box .title
@@ -388,16 +390,16 @@ img
   .container1 .right, .container1 .left{
     background-color: #F9A300;
     display: inline-block;
-    padding: 10px 18px 10px 16px;
+    padding: 10px 18px 10px 14px;
     color: #ddd;
     text-decoration: none;
     text-align: center;
     border-radius: 100%;
     width: 40px;
     height: 40px;
-    font-size: 20px;
-    line-height: 0.8;
+    font-size: 25px;
+    line-height: 0.7;
   }
 
-  .container1 .left{float: left; position: relative; top: 200px;}
-  .container1 .right {float: right; position: relative; top: 200px; }
+  .container1 .left{float: left; position: absolute; top: 200px; left: 150px}
+  .container1 .right {float: right; position: absolute; top: 200px; right: 150px; }

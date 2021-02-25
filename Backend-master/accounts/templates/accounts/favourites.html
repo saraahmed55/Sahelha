@@ -1,7 +1,5 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-
     
 {% load static %}
 <!DOCTYPE html>
@@ -13,8 +11,8 @@
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'css/old.css' %}">
 </head>
-<body>
-    <section class="first" style="background-image:url('{% static 'img/courses-bg.jpg' %}');">
+<body style="background-image:url('{% static 'img/courses-bg.jpg' %}');">
+    <section class="first ccc" >
         <header class="main-header clearfix" role="header">
             <div class="logo">
               <em>SAHELHA</em>.COM
@@ -27,6 +25,7 @@
                 <li><a href="{% url 'tracks:track_list' %}">Tracks</a></li>
                 {%if request.user.is_authenticated%}
                 <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
                 {%else%}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 {%endif%}
@@ -36,11 +35,13 @@
 
         <div class="profile">
 
-        <em>YOUR</em>    PROFILE
+        <em>YOUR</em>    Favourite Courses
 
     </div>
 
-        
+    <div class="learner">
+      <img src="{{profile.image.url}}">
+    </div>
 
         <div class="learnername">{{profile}}</div>
         <div class="icon">
@@ -54,16 +55,20 @@
           
           
           <div >
-              <div class="title">
+              <div >
                   <div >
                         <section class="jumbotron text-center bg-white">
                             <div class="container">
-                                <h1>Users saved favourite posts</h1>
                                 <p class="lead text-muted">Here you can remove or view the favourite courses you have added</p>
                             </div>
                         </section>
                     </div>
-
+                    {% if new.has_other_pages %}
+                    {% if new.has_previous %}
+                      <a href="?page={{new.previous_page_number}}" class="left">&laquo;</a>
+                    {% endif %}
+                  {% endif %}
+            
 
                                 {% for course in new %}
                                 <div class="box">
@@ -85,6 +90,12 @@
                                 </div>
                                 {% endfor %}
 
+                                {% if new.has_other_pages %}
+                                {% if new.has_next %}
+                                  <a href="?page={{new.next_page_number}}" class="right">&raquo;</a>
+                                {% endif %}
+                              {% endif %}
+
               </div>
           
           </div>
@@ -93,6 +104,7 @@
         </div>
 
       </section>
+      <div class="ddd"> </div>
       <section class="second">
 
         <div class="footer">
