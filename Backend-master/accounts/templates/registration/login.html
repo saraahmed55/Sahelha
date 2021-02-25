@@ -3,9 +3,10 @@
 
 {% block content %}
 
+
 <h1  class="formword" >Login</h1>
 <div class="col">
-  <a href="#" class="fb btn">
+  <a href="{% url 'social:begin' 'facebook' %}" class="fb btn">
     <i class="fa fa-facebook fa-fw"></i> Login with Facebook
   </a>
   <a href="#" class="twitter btn">

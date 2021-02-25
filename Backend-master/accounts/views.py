@@ -16,6 +16,10 @@ from .models import Profile
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from tracksapp.models import courses
+
+
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 @ login_required
 def favourite_list(request):
@@ -74,3 +78,7 @@ def profile_edit(request):
 
     return render(request, 'accounts/profile_edit.html' , {'userform':UserForm, })
 
+
+
+class HomeView(LoginRequiredMixin, TemplateView):
+    template_name = "registration/login.html" 

@@ -5,6 +5,8 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from tracksapp.models import courses
 from django.http import HttpResponseRedirect
+
+
 # Create your views here.
 
 def track_list(request):
@@ -53,3 +55,5 @@ class CourseDetailView():
 
 # def user_favourites(request):
 #     user_favourites=    
+
+
