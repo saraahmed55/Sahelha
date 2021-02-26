@@ -485,19 +485,19 @@ img
 .right,  .left{
     background-color: #D2691E;
     display: inline-block;
-    padding: 10px 10px 10px 10px;
     color: #ddd;
     text-decoration: none;
     text-align: center;
     border-radius: 100%;
-    width: 25px;
-    height: 25px;
-    font-size: 25px;
-    line-height: 0.8;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    line-height: 0.4;
 }
 
-.left{float: left; position: absolute;  top: 225px; left: 200px }
-.right {float: right; position: absolute;  top: 225px; right: 200px }
+.left{float: left; position: absolute;  top: 400px; left: 200px; padding: 10px 10px 10px 8px; }
+.right {float: right; position: absolute;  top: 400px; right: 200px; padding: 10px 10px 10px 10px;}
+.right:hover, .left:hover {text-decoration: none; color: #ddd;}
 .ccc {height: 1200px;}
 
 .imm {margin-top: 100px}
