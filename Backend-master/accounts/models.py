@@ -4,7 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 # Create your models here.
-def image_url(self):
+def image_url():
     return 'default.jpg'
 
 class Profile(models.Model):
